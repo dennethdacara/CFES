@@ -1,2 +1,2 @@
 # CFES
-Faculty Evaluation System
+Faculty Evaluation System made with Laravel
