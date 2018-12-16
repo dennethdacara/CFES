@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "role_id": 1,
+    "firstname": "Main",
+    "lastname": "Admin",
+    "gender": 1,
+    "image": "admin.png",
+    "email": "Admin@gmail.com",
+    "username": "Admin"
+  },
+  {
+    "id": 2,
+    "role_id": 2,
+    "firstname": "CFES",
+    "lastname": "Student",
+    "gender": 1,
+    "image": "student.png",
+    "email": "student@gmail.com",
+    "username": "Student"
+  },
+  {
+    "id": 3,
+    "role_id": 3,
+    "firstname": "CFES",
+    "lastname": "Faculty",
+    "gender": 1,
+    "image": "faculty.png",
+    "email": "faculty@gmail.com",
+    "username": "Faculty"
+  }
+]

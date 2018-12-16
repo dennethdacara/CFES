@@ -1,0 +1,6 @@
+[
+  {"id": 1, "sy_id": 1, "gradelevel_id": 11, "adviser_id": 3, "name": "G11 Section A"},
+  {"id": 2, "sy_id": 1, "gradelevel_id": 11, "adviser_id": 3, "name": "G11 Section B"},
+  {"id": 3, "sy_id": 1, "gradelevel_id": 12, "adviser_id": 3, "name": "G12 Section A"},
+  {"id": 4, "sy_id": 1, "gradelevel_id": 12, "adviser_id": 3, "name": "G12 Section B"}
+]

@@ -1,0 +1,5 @@
+[
+  {"id": 1, "start": 2018, "end": 2019, "is_active": 1},
+  {"id": 2, "start": 2019, "end": 2020, "is_active": 0},
+  {"id": 3, "start": 2020, "end": 2021, "is_active": 0}
+]

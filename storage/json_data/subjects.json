@@ -1,0 +1,6 @@
+[
+  {"id": 1, "gradelevel_id": 11, "code": "G11SUBJA", "name": "G11 Subject A"},
+  {"id": 2, "gradelevel_id": 11, "code": "G11SUBJB", "name": "G11 Subject B"},
+  {"id": 3, "gradelevel_id": 12, "code": "G12SUBJA", "name": "G12 Subject A"},
+  {"id": 4, "gradelevel_id": 12, "code": "G12SUBJB", "name": "G12 Subject B"}
+]

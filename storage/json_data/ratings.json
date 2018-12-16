@@ -1,0 +1,7 @@
+[
+  {"id": 1, "name": "Very Poor"},
+  {"id": 2, "name": "Poor"},
+  {"id": 3, "name": "Good"},
+  {"id": 4, "name": "Very Good"},
+  {"id": 5, "name": "Excellent"}
+]
