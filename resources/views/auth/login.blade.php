@@ -26,10 +26,10 @@
 
     <div class="checkbox mb-3">
         <label>
-            <a href="{{ route('password.request') }}">Forgot password?</a>   
+            <a href="{{ route('password.request') }}">Forgot password?</a>
         </label>
     </div>
-    
+
     <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
     <button class="btn btn-lg btn-success btn-block" type="submit">Faculty Evaluation</button>
     <p class="mt-5 mb-3 text-muted">&copy; {{ \Carbon\Carbon::now()->year }} - {{ \Carbon\Carbon::now()->format('Y')+1 }}</p>

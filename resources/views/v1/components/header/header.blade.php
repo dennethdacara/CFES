@@ -4,13 +4,24 @@
     <li class="nav-item">
       <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
     </li>
-    <li class="nav-item d-none d-sm-inline-block">
+    <!-- <li class="nav-item d-none d-sm-inline-block">
       <a href="{{route('checkAuth')}}" class="nav-link">Home</a>
+    </li> -->
+
+    @php
+        use \App\Model\SchoolYear;
+        $activeSY = SchoolYear::whereIsActive(true)->first();
+    @endphp
+
+    <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link">Current School Year:
+            <i><b>{{$activeSY->start}} - {{$activeSY->end}}</b></i>
+        </a>
     </li>
   </ul>
 
   <!-- SEARCH FORM -->
-  <form class="form-inline ml-3">
+  <!-- <form class="form-inline ml-3">
     <div class="input-group input-group-sm">
       <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
       <div class="input-group-append">
@@ -19,7 +30,7 @@
         </button>
       </div>
     </div>
-  </form>
+  </form> -->
 
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
@@ -30,10 +41,17 @@
       </a>
       <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
         <a href="#" class="dropdown-item">
-          My Account
+            <i class="fas fa-user-circle" style="margin-right:10px;"></i>
+            My Account *
         </a>
         <div class="dropdown-divider"></div>
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();" id="logoutBtn" class="dropdown-item">Logout</a>
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();"
+            id="logoutBtn"
+            class="dropdown-item">
+            <i class="fas fa-sign-out-alt" style="margin-right:10px;"></i>
+            Logout
+        </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           {{ csrf_field() }}
         </form>

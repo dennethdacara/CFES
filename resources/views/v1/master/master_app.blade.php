@@ -7,6 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>CFES | V1</title>
   @include('v1/components/scripts/css')
+  @include('v1/components/scripts/js')
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -33,7 +34,6 @@
     @include('v1/components/footer/footer')
   </div>
 
-  @include('v1/components/scripts/js')
 </body>
 
 </html>

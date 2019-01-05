@@ -64,6 +64,8 @@
     $("#gradelevel-table").DataTable({ "order": [[2, "asc"]] });
     $("#section-table").DataTable({ "order": [[4, "desc"]] });
     $("#subject-table").DataTable({ "order": [[3, "desc"]] });
+    $("#sy-table").DataTable({ "order": [[2, "desc"]] });
+    $("#questions-table").DataTable({ "order": [[3, "desc"]] });
 
     $('#example2').DataTable({
       "paging": true,

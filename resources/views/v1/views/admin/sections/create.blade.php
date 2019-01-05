@@ -23,6 +23,7 @@
               <div class="form-group">
                 <label>Schoolyear*</label>
                 <select name="sy_id" id="sy_id" class="form-control">
+
                   @forelse($schoolyears as $sy)
                     <option value="{{$sy->id}}" {{$sy->is_active ? 'selected' : ''}}>{{$sy->start}}-{{$sy->end}}</option>
                   @empty
@@ -67,7 +68,7 @@
                   <span class="help-block align-left" style="color:red;">{{ $errors->first('adviser_id') }}</span>
                 @endif
               </div>
-              
+
               <div class="form-group">
                 <label>Name*</label>
                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter Section Name" value="{{old('name')}}">
