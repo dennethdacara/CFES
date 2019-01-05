@@ -1,0 +1,8 @@
+[
+  {"id": 1, "section_id": 1, "subject_id": 1, "type": "multiple_choice", "name": "Presentation of Content"},
+  {"id": 2, "section_id": 1, "subject_id": 1, "type": "multiple_choice", "name": "Clarity of Expectations or Directions"},
+  {"id": 3, "section_id": 1, "subject_id": 1, "type": "multiple_choice", "name": "Helpfulness/Availability"},
+  {"id": 4, "section_id": 1, "subject_id": 1, "type": "multiple_choice", "name": "Useful/Clear Feedback on Performance"},
+  {"id": 5, "section_id": 1, "subject_id": 1, "type": "multiple_choice", "name": "Encouraging of Participation/Discussion"},
+  {"id": 6, "section_id": 1, "subject_id": 1, "type": "multiple_choice", "name": "Overall Teaching Effectiveness"}
+]

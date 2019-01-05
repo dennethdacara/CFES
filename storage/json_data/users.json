@@ -24,7 +24,7 @@
     "role_id": 3,
     "firstname": "CFES",
     "lastname": "Faculty",
-    "gender": 1,
+    "gender": 0,
     "image": "faculty.png",
     "email": "faculty@gmail.com",
     "username": "Faculty"

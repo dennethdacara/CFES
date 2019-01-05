@@ -21,9 +21,9 @@
                     <table id="questions-table" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>Section</th>
                                 <th>Subject</th>
                                 <th>Question</th>
-                                <th>Is Active</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
@@ -31,9 +31,9 @@
                         <tbody>
                             @foreach($questions as $question)
                             <tr>
+                                <td>{{$question->section}}</td>
                                 <td>{{$question->subject}}</td>
                                 <td>{{$question->name}}</td>
-                                <td>{{$question->is_active}}</td>
                                 <td>{{$question->created_at}}</td>
                                 <td>
                                     <form method="POST" action="{{route('questions.destroy', ['id' => $question->id])}}">

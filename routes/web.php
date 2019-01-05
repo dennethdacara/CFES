@@ -13,5 +13,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('syStartYearApi', 'Shared\SyController@syStartYearApi');
     Route::get('sy/setAsActive/{id}', 'Shared\SyController@setAsActive')->name('sy.setAsActive');
     Route::resource('questions', 'Admin\QuestionController');
+    Route::resource('faculties', 'Admin\FacultyController');
+    Route::resource('users', 'Admin\UserController');
 });
 

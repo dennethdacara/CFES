@@ -11,9 +11,15 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ !file_exists( public_path() . '/images/user_icons/' . Auth::user()->image) ?
-          asset('images/user_icons/default.png') : asset('images/user_icons').'/'.Auth::user()->image }}"
+        @if(Auth::user()->image)
+            <img src="{{ !file_exists( public_path() . '/images/user_icons/' . Auth::user()->image) ?
+          asset('images/user_icons/admin.png') : asset('images/user_icons').'/'.Auth::user()->image }}"
           class="img-circle elevation-2" alt="User Image">
+        @else
+            <img src="{{ Auth::user()->image == null ? asset('images/user_icons/admin.png')
+            : asset('images/user_icons').'/'.Auth::user()->image }}"
+            style="height:50px;width:50px;">
+        @endif
       </div>
       <div class="info">
         <a href="#" class="d-block">{{Auth::user()->firstname.' '.Auth::user()->lastname}}</a>
@@ -32,19 +38,21 @@
         <li class="nav-item has-treeview
             {{ Request::is('gradelevels*') || Request::is('sections*') ||
             Request::is('subjects*') || Request::is('sy*')
-            || Request::is('questions*') ? 'has-treeview menu-open' : '' }}">
+            || Request::is('questions*') || Request::is('faculties*')
+            || Request::is('users*') ? 'has-treeview menu-open' : '' }}">
           <a href="#" class="nav-link
             {{ Request::is('gradelevels*') || Request::is('sections*') ||
             Request::is('subjects*') || Request::is('sy*')
-            || Request::is('questions*') ? 'active' : '' }}">
+            || Request::is('questions*') || Request::is('faculties*')
+            || Request::is('users*') ? 'active' : '' }}">
             <i class="nav-icon fa fa-th"></i>
             <p>Core Modules<i class="right fa fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
+              <a href="{{route('faculties.index')}}" class="nav-link {{ Request::is('faculties*') ? 'active' : '' }}">
                 <i class="fas fa-chalkboard-teacher nav-icon"></i>
-                <p>Faculty *</p>
+                <p>Faculty</p>
               </a>
             </li>
             <li class="nav-item">
@@ -60,9 +68,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
+              <a href="{{route('users.index')}}" class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
                 <i class="fas fa-users nav-icon"></i>
-                <p>Users *</p>
+                <p>Users</p>
               </a>
             </li>
             <li class="nav-item">

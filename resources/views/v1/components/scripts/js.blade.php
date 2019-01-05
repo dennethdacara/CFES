@@ -33,6 +33,9 @@
 <!-- <script src="{{asset('template/AdminLTE/dist/js/pages/dashboard2.js')}}"></script> -->
 <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+
 <script>
   ClassicEditor.create(document.querySelector('#product-create'), {
     toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
@@ -66,6 +69,8 @@
     $("#subject-table").DataTable({ "order": [[3, "desc"]] });
     $("#sy-table").DataTable({ "order": [[2, "desc"]] });
     $("#questions-table").DataTable({ "order": [[3, "desc"]] });
+    $("#faculty-table").DataTable({ "order": [[5, "desc"]] });
+    $("#users-table").DataTable({ "order": [[5, "desc"]] });
 
     $('#example2').DataTable({
       "paging": true,
@@ -76,4 +81,9 @@
       "autoWidth": false
     });
   });
+
+//multi select
+    $(function() {
+        $('.multiSel').selectpicker();
+    });
 </script>
