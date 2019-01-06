@@ -15,5 +15,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('questions', 'Admin\QuestionController');
     Route::resource('faculties', 'Admin\FacultyController');
     Route::resource('users', 'Admin\UserController');
+    Route::resource('schedules', 'Admin\ScheduleController');
+    Route::resource('students', 'Admin\StudentController');
 });
 

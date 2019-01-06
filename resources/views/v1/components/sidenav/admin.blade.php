@@ -39,12 +39,14 @@
             {{ Request::is('gradelevels*') || Request::is('sections*') ||
             Request::is('subjects*') || Request::is('sy*')
             || Request::is('questions*') || Request::is('faculties*')
-            || Request::is('users*') ? 'has-treeview menu-open' : '' }}">
+            || Request::is('users*') || Request::is('schedules*')
+            || Request::is('students*') ? 'has-treeview menu-open' : '' }}">
           <a href="#" class="nav-link
             {{ Request::is('gradelevels*') || Request::is('sections*') ||
             Request::is('subjects*') || Request::is('sy*')
             || Request::is('questions*') || Request::is('faculties*')
-            || Request::is('users*') ? 'active' : '' }}">
+            || Request::is('users*') || Request::is('schedules*')
+            || Request::is('students*') ? 'active' : '' }}">
             <i class="nav-icon fa fa-th"></i>
             <p>Core Modules<i class="right fa fa-angle-left"></i></p>
           </a>
@@ -62,9 +64,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link {{ Request::is('schedules*') ? 'active' : '' }}">
+              <a href="{{route('schedules.index')}}" class="nav-link {{ Request::is('schedules*') ? 'active' : '' }}">
                 <i class="fas fa-calendar-week nav-icon"></i>
-                <p>Schedules *</p>
+                <p>Schedules</p>
               </a>
             </li>
             <li class="nav-item">
@@ -80,9 +82,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link {{ Request::is('students*') ? 'active' : '' }}">
+              <a href="{{route('students.index')}}" class="nav-link {{ Request::is('students*') ? 'active' : '' }}">
                 <i class="fas fa-user-graduate nav-icon"></i>
-                <p>Students *</p>
+                <p>Students</p>
               </a>
             </li>
             <li class="nav-item">

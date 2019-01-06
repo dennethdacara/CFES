@@ -8,13 +8,13 @@
 <section class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 offset-md-2">
         @include('v1/components/errors/flash_message')
 
         <div class="card card-default">
           <div class="card-header">
             <h3 class="card-title">Add Gradelevel</h3>
-            
+
           </div>
           <form method="POST" action="{{ route('gradelevels.store') }}" enctype="multipart/form-data">
             {{csrf_field()}}

@@ -64,6 +64,8 @@
 
 <script>
   $(function () {
+    $('.multiSel').selectpicker();
+
     $("#gradelevel-table").DataTable({ "order": [[2, "asc"]] });
     $("#section-table").DataTable({ "order": [[4, "desc"]] });
     $("#subject-table").DataTable({ "order": [[3, "desc"]] });
@@ -71,6 +73,8 @@
     $("#questions-table").DataTable({ "order": [[3, "desc"]] });
     $("#faculty-table").DataTable({ "order": [[5, "desc"]] });
     $("#users-table").DataTable({ "order": [[5, "desc"]] });
+    $("#schedules-table").DataTable({ "order": [[6, "desc"]] });
+    $("#students-table").DataTable({ "order": [[6, "desc"]] });
 
     $('#example2').DataTable({
       "paging": true,
@@ -82,8 +86,4 @@
     });
   });
 
-//multi select
-    $(function() {
-        $('.multiSel').selectpicker();
-    });
 </script>
