@@ -19,7 +19,7 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-  
+
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
@@ -29,35 +29,47 @@
           <div class="info-box">
             <span class="info-box-icon bg-warning-gradient elevation-1"><i class="fa fa-user"></i></span>
             <div class="info-box-content">
-              <span class="info-box-text">Users</span>
-              <span class="info-box-number">{{ App\User::count() }}</span>
+              <a href="{{route('users.index')}}" style="color:inherit;">
+                <span class="info-box-text">
+                    Users
+                </span>
+                <span class="info-box-number">{{ App\User::count() }}</span>
+              </a>
             </div>
           </div>
         </div>
-  
+
         <div class="col-12 col-sm-6 col-md-3">
           <div class="info-box mb-3">
             <span class="info-box-icon bg-warning-gradient elevation-1"><i class="fa fa-tasks"></i></span>
             <div class="info-box-content">
-              <span class="info-box-text">Faculty</span>
-              <span class="info-box-number">{{ App\Model\Faculty::count() }}</span>
+                <a href="{{route('faculties.index')}}" style="color:inherit;">
+                    <span class="info-box-text">
+                        Faculty
+                    </span>
+                    <span class="info-box-number">{{ App\Model\Faculty::count() }}</span>
+                </a>
             </div>
           </div>
         </div>
-  
+
         <div class="col-12 col-sm-6 col-md-3">
           <div class="info-box mb-3">
             <span class="info-box-icon bg-warning-gradient elevation-1"><i class="fa fa-tasks"></i></span>
             <div class="info-box-content">
-              <span class="info-box-text">Students</span>
-              <span class="info-box-number">{{ App\Model\Student::count() }}</span>
+                <a href="{{route('students.index')}}" style="color:inherit;">
+                    <span class="info-box-text">
+                        Students
+                    </span>
+                    <span class="info-box-number">{{ App\Model\Student::count() }}</span>
+                </a>
             </div>
           </div>
         </div>
-  
+
         <!-- fix for small devices only -->
         <div class="clearfix hidden-md-up"></div>
-  
+
       </div>
       <!-- /.row -->
     </div>

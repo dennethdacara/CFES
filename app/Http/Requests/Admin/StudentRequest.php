@@ -24,8 +24,17 @@ class StudentRequest extends FormRequest
      */
     public function rules()
     {
+
+        $student_id = $this->isMethod('patch') ? ',' . $this->request->get('student_id') : '';
+        $user_id = $this->isMethod('patch') ? ',' . $this->request->get('user_id') : '';
+
         return [
-            //
+            'student_no' => 'required|unique:students,student_no' . $student_id,
+            'lrn' => 'nullable|numeric|digits:12|unique:students,lrn' . $student_id,
+            'gradelevel_id' => 'required|numeric',
+            'section_id' => 'required|numeric',
+            'email' => 'required|email|unique:users,email' . $user_id,
+            'gender' => 'required'
         ];
     }
 }
