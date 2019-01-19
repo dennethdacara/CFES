@@ -61,12 +61,12 @@
                                 <label class="radio-inline" style="margin-right:15px;font-weight:normal;">
                                     <input type="radio" name="type" value="multiple_choice" checked>Multiple Choice
                                 </label>
-                                <label class="radio-inline" style="margin-right:15px;font-weight:normal;">
+                                <!-- <label class="radio-inline" style="margin-right:15px;font-weight:normal;">
                                     <input type="radio" name="type" value="fill_in_the_blanks">Fill-in the blanks
                                 </label>
                                 <label class="radio-inline" style="margin-right:15px;font-weight:normal;">
                                     <input type="radio" name="type" value="true_or_false">True or False
-                                </label>
+                                </label> -->
                             </div>
 
                             <div class="form-group">

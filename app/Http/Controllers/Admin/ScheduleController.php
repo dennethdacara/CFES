@@ -52,6 +52,8 @@ class ScheduleController extends Controller
 
         $defaultSY = SchoolYear::whereIsActive(true)->first();
 
+        $syID = $this->activeSYID();
+
         Schedule::create([
             'sy_id' => $defaultSY->id,
             'subject_id' => $request->subject_id,

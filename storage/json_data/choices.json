@@ -1,6 +1,6 @@
 [
-  {"id": 1, "name": "The subject teacher clearly presented the skills to be learned"},
-  {"id": 2, "name": "The subject teacher effectively presented the tools (e.g. materials, skills, and techniques) needed"},
-  {"id": 3, "name": "The subject teacher effectively presented concepts and techniques"},
-  {"id": 4, "name": "The subject teacher presented content in an organized manner"}
+  {"id": 1, "name": "Excellent"},
+  {"id": 2, "name": "Good"},
+  {"id": 3, "name": "Fair"},
+  {"id": 4, "name": "Poor"}
 ]

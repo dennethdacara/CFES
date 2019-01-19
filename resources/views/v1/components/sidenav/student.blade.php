@@ -11,7 +11,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ !file_exists( public_path() . '/images/user_icons/' . Auth::user()->image) ? 
+        <img src="{{ !file_exists( public_path() . '/images/user_icons/' . Auth::user()->image) ?
           asset('images/user_icons/default.png') : asset('images/user_icons').'/'.Auth::user()->image }}"
           class="img-circle elevation-2" alt="User Image">
       </div>
@@ -23,8 +23,12 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item {{ Request::is('/') ? 'has-treeview menu-open' : '' }}">
-          <a href="{{route('checkAuth')}}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
+        <li class="nav-item
+            {{ Request::is('/')
+            ? 'has-treeview menu-open' : '' }}">
+          <a href="{{route('checkAuth')}}" class="nav-link
+            {{ Request::is('/')
+            ? 'active' : '' }}">
             <i class="nav-icon fa fa-dashboard"></i>
             <p>Dashboard</p>
           </a>
@@ -36,7 +40,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{ url('evaluateTeacherSelection') }}" class="nav-link
+            {{ Request::is('evaluateTeacherSelection*') || Request::is('evaluateTeacher*')
+            ? 'active' : '' }}">
             <i class="nav-icon fa fa-edit"></i>
             <p>Teacher Evaluation</p>
           </a>

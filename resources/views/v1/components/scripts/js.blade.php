@@ -36,6 +36,9 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
 
+<!-- google recaptcha api-->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <script>
   ClassicEditor.create(document.querySelector('#product-create'), {
     toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
