@@ -51,6 +51,7 @@ class StudentController extends Controller
                 'lastname' => $request->lastname,
                 'gender' => $request->gender,
                 'email' => $request->email,
+                'image' => 'student.png',
                 'username' => $request->email,
                 'password' => bcrypt('password'),
                 'slug' => str_slug($request->firstname.' '.$request->lastname)
