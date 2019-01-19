@@ -24,9 +24,9 @@
             @foreach($teachers as $teacher)
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="info-box">
-                        <span class="info-box-icon bg-info-gradient elevation-1">
+                        <span class="info-box-icon elevation-0">
                             <img src="{{ $teacher->image == null ? asset('images/user_icons/admin.png')
-                            : asset('images/user_icons').'/'.Auth::user()->image }}"
+                            : asset('images/user_icons').'/'.$teacher->image }}"
                             style="height:50px;width:50px;">
                         </span>
                         <div class="info-box-content">
