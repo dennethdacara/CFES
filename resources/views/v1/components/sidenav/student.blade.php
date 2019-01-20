@@ -47,6 +47,13 @@
             <p>Teacher Evaluation</p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="{{ route('studentComments.index') }}" class="nav-link
+            {{ Request::is('studentComments*') ? 'active' : '' }}">
+            <i class="nav-icon fa fa-comment"></i>
+            <p>Comments</p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

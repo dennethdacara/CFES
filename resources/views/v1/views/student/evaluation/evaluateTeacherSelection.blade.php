@@ -37,7 +37,6 @@
                                     <small>Evaluation Status: <i>{{ $teacher->status == 'disabled' ? 'Already Submitted' : 'Pending' }}</i></small>
                                 </span>
                                 <span class="info-box-number" style="margin-top:5px;">
-
                                     <a href="{{ url('evaluateTeacher',
                                     ['sectionID' => $teacher->section_id, 'subjectID' => $teacher->subject_id,
                                     'facultyID' => $teacher->faculty_id]) }}">
@@ -46,8 +45,28 @@
                                 </span>
                             </a>
                         </div>
+
+                    </div>
+                    <div class="card-footer" style="margin-top:-12px;">
+                        <form action="{{ route('studentComments.store') }}" method="post">
+                            @csrf
+                        <img class="img-fluid img-circle img-sm" src="{{ Auth::user()->image == null ? asset('images/user_icons/admin.png')
+                            : asset('images/user_icons').'/'.Auth::user()->image }}" alt="Alt Text">
+                        <!-- .img-push is used to add margin to elements next to floating images -->
+                        <div class="img-push">
+                            <input type="hidden" name="subject_id" value="{{ $teacher->subject_id }}">
+                            <input type="hidden" name="faculty_id" value="{{ $teacher->faculty_id }}">
+                            <input type="hidden" name="student_id" value="{{ $studentInfo->student_id }}">
+                            <input type="text" name="comment" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                            @if ($errors->has('comment'))
+                            <span class="help-block align-left" style="color:red;">{{
+                                $errors->first('comment') }}</span>
+                            @endif
+                        </div>
+                        </form>
                     </div>
                 </div>
+
             @endforeach
 
             <!-- fix for small devices only -->

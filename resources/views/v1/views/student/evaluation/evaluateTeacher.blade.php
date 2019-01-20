@@ -69,7 +69,7 @@
 
             <br>
             <div class="box-footer row" style="margin-bottom:10px;">
-                <button class="btn btn-md btn-info" id="submitBtn">Submit</button>
+                <button class="btn btn-md btn-info" id="submitBtn" onclick="return confirm('Are you sure you want to submit your evaluation?');">Submit</button>
             </div>
 
         </form>

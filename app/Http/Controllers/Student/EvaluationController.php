@@ -44,7 +44,7 @@ class EvaluationController extends Controller
                 return $data;
             });
 
-        return view ('v1/views/student/evaluation/evaluateTeacherSelection', compact('teachers'));
+        return view ('v1/views/student/evaluation/evaluateTeacherSelection', compact('teachers', 'studentInfo'));
     }
 
     public function evaluateTeacher($sectionID, $subjectID, $facultyID)
