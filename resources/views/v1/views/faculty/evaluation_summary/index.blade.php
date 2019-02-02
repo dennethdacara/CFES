@@ -15,28 +15,40 @@
         </div>
         <div class="card-body">
 
-          @foreach($evaluationSummary as $index => $evaluationSummary1)
-            <h4>Topic: {{$evaluationSummary1->name}}</h4>
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Rating</th>
-                  <th>Score/Total Points</th>
-                </tr>
-              </thead>
-              <tbody>
+            @forelse($evaluationSummary as $index => $evaluationSummary1)
+                <h4>Topic: {{$evaluationSummary1->name}}</h4>
+                <table class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th>Rating</th>
+                    <th>Score/Total Points</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                @foreach($evaluationSummary1->choices as $choice)
-                  <tr>
-                    <td>{{$choice->name}}</td>
-                    <td>{{$choice->total}}</td>
-                  </tr>
-                @endforeach
-                  
-              </tbody>
-            </table>
-            <br>
-          @endforeach
+                    @foreach($evaluationSummary1->choices as $choice)
+                    <tr>
+                        <td>{{$choice->name}}</td>
+                        <td>{{$choice->total}}</td>
+                    </tr>
+                    @endforeach
+
+                </tbody>
+                </table>
+                <br>
+
+            @empty
+                <div class="alert alert-danger alert-dismissible fade show col-md-12" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    </button>
+                    <strong>No evaluation results available. <br>
+                        What went wrong?
+                        <li>
+                            <i>It's either the evaluation module is locked, or none of you students evaluated you.</i>
+                        </li>
+                    </strong>
+                </div>
+            @endforelse
         </div>
       </div>
     </div>
