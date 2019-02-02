@@ -1,0 +1,6 @@
+[
+    {"id": 1, "name": "1st Quarter", "is_active": 1},
+    {"id": 2, "name": "2nd Quarter", "is_active": 0},
+    {"id": 3, "name": "3rd Quarter", "is_active": 0},
+    {"id": 4, "name": "4th Quarter", "is_active": 0}
+]

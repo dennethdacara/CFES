@@ -18,6 +18,7 @@ class ScheduleTableSeeder extends Seeder
             App\Model\Schedule::create([
                 'id' => $obj->id,
                 'sy_id' => $obj->sy_id,
+                'sem_id' => $obj->sem_id,
                 'subject_id' => $obj->subject_id,
                 'section_id' => $obj->section_id,
                 'faculty_id' => $obj->faculty_id,

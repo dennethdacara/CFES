@@ -23,7 +23,7 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item
+        {{-- <li class="nav-item
             {{ Request::is('/')
             ? 'has-treeview menu-open' : '' }}">
           <a href="{{route('checkAuth')}}" class="nav-link
@@ -38,7 +38,7 @@
             <i class="nav-icon fa fa-calendar"></i>
             <p>My Schedule</p>
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a href="{{ url('evaluateTeacherSelection') }}" class="nav-link
             {{ Request::is('evaluateTeacherSelection*') || Request::is('evaluateTeacher*')

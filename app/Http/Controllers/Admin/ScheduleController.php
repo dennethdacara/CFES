@@ -15,10 +15,12 @@ class ScheduleController extends Controller
 
     public function index()
     {
+        $semID = $this->activeSemID();
         $schedules = Schedule::leftjoin('subjects','subjects.id','schedules.subject_id')
             ->leftjoin('sections','sections.id','schedules.section_id')
             ->leftjoin('users as faculties','faculties.id','schedules.faculty_id')
             ->leftjoin('rooms','rooms.id','schedules.room_id')
+            ->where('schedules.sem_id', $semID)
             ->get([
                 'schedules.*', 'subjects.name as subject', 'sections.name as section',
                 \DB::raw("(CONCAT(faculties.firstname,' ',faculties.lastname)) as faculty"),
@@ -51,11 +53,12 @@ class ScheduleController extends Controller
         $end_time = date('H:i:s', strtotime($request->end_time));
 
         $defaultSY = SchoolYear::whereIsActive(true)->first();
-
         $syID = $this->activeSYID();
+        $semID = $this->activeSemID();
 
         Schedule::create([
             'sy_id' => $defaultSY->id,
+            'sem_id' => $semID,
             'subject_id' => $request->subject_id,
             'section_id' => $request->section_id,
             'faculty_id' => $request->faculty_id,

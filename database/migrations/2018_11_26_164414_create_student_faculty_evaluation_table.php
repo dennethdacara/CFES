@@ -16,6 +16,7 @@ class CreateStudentFacultyEvaluationTable extends Migration
         Schema::create('student_faculty_evaluation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sy_id');
+            $table->integer('sem_id');
             $table->integer('subject_id');
             $table->integer('faculty_id');
             $table->integer('question_id');

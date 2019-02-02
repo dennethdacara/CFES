@@ -51,16 +51,31 @@ class FacultyController extends Controller
 
     public function destroy($id)
     {
-        DB::beginTransaction();
-        try {
-            $faculty = Faculty::whereUserId($id)->first();
-            User::find($faculty->user_id)->delete();
-            $faculty->delete();
-            DB::commit();
-            return back()->with('success', 'Successfully deleted!');
-        } catch (\Exception $e) {
-            DB::rollback();
-            return back()->with('error', $e->getMessage());
+        // DB::beginTransaction();
+        // try {
+        //     $faculty = Faculty::whereUserId($id)->first();
+        //     User::find($faculty->user_id)->delete();
+        //     $faculty->delete();
+        //     DB::commit();
+        //     return back()->with('success', 'Successfully deleted!');
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        //     return back()->with('error', $e->getMessage());
+        // }
+    }
+
+    public function toggleActivation($userID)
+    {
+        $faculty = User::find($userID);
+
+        if ($faculty->is_active) {
+            $faculty->update(['is_active' => 0]);
+            $message = 'User has been deactivated';
+        } else {
+            $faculty->update(['is_active' => 1]);
+            $message = 'User has been activated';
         }
+
+        return back()->with('succcess', $message);
     }
 }

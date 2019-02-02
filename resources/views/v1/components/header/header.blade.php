@@ -4,20 +4,34 @@
     <li class="nav-item">
       <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
     </li>
-    <!-- <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{route('checkAuth')}}" class="nav-link">Home</a>
-    </li> -->
 
     @php
-        use \App\Model\SchoolYear;
+        use \App\Model\SchoolYear, \App\Model\Semester, \App\Model\EvaluationSetting;
         $activeSY = SchoolYear::whereIsActive(true)->first();
+        $activeSem = Semester::whereIsActive(true)->first();
+        $evaluationSettings = EvaluationSetting::first();
+        $startDate = date('M d, Y', strtotime($evaluationSettings->start_date));
+        $endDate = date('M d, Y', strtotime($evaluationSettings->end_date));
     @endphp
 
     <li class="nav-item d-none d-sm-inline-block">
-        <a class="nav-link">Current School Year:
+        <a class="nav-link">School Year:
             <i><b>{{$activeSY->start}} - {{$activeSY->end}}</b></i>
         </a>
     </li>
+
+    <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link">Semester:
+            <i><b>{{$activeSem->name}}</b></i>
+        </a>
+    </li>
+
+    <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link">Evaluation Period:
+            <i><b>{{$startDate}} - {{$endDate}}</b></i>
+        </a>
+    </li>
+
   </ul>
 
   <!-- SEARCH FORM -->
@@ -40,11 +54,11 @@
         <i class="fa fa-align-justify"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-        <a href="#" class="dropdown-item">
+        {{-- <a href="#" class="dropdown-item">
             <i class="fas fa-user-circle" style="margin-right:10px;"></i>
             My Account *
         </a>
-        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div> --}}
         <a href="{{ route('logout') }}"
             onclick="event.preventDefault();"
             id="logoutBtn"

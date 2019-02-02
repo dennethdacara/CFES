@@ -69,15 +69,59 @@
   $(function () {
     $('.multiSel').selectpicker();
 
-    $("#gradelevel-table").DataTable({ "order": [[2, "asc"]] });
-    $("#section-table").DataTable({ "order": [[4, "desc"]] });
-    $("#subject-table").DataTable({ "order": [[3, "desc"]] });
-    $("#sy-table").DataTable({ "order": [[2, "desc"]] });
-    $("#questions-table").DataTable({ "order": [[3, "desc"]] });
-    $("#faculty-table").DataTable({ "order": [[5, "desc"]] });
-    $("#users-table").DataTable({ "order": [[5, "desc"]] });
-    $("#schedules-table").DataTable({ "order": [[6, "desc"]] });
-    $("#students-table").DataTable({ "order": [[6, "desc"]] });
+    $("#gradelevel-table").DataTable({ 
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[2, "asc"]] 
+    });
+
+    $("#section-table").DataTable({ 
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[4, "desc"]] 
+    });
+
+    $("#subject-table").DataTable({ 
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[3, "desc"]] 
+    });
+
+    $("#sy-table").DataTable({ 
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[2, "desc"]] 
+    });
+
+    $("#questions-table").DataTable({ 
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[3, "desc"]]
+    });
+
+    $("#faculty-table").DataTable({
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[5, "desc"]] 
+    });
+
+    $("#users-table").DataTable({ 
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[5, "desc"]] 
+    });
+
+    $("#schedules-table").DataTable({ 
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[6, "desc"]] 
+    });
+
+    $("#students-table").DataTable({ 
+      "pageLength": 50,
+      "aLengthMenu": [[5, 10, 25, 50, 100, 500, 1000, -1], [5, 10, 25, 50, 100, 500, 1000, "All"]],
+      "order": [[6, "desc"]] 
+    });
 
     $('#example2').DataTable({
       "paging": true,

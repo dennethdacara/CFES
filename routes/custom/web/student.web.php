@@ -1,7 +1,7 @@
 <?php
 $except = ['create', 'edit', 'show'];
 
-Route::get('evaluateTeacherSelection', 'Student\EvaluationController@evaluateTeacherSelection');
+Route::get('evaluateTeacherSelection', 'Student\EvaluationController@evaluateTeacherSelection')->name('evaluateTeacherSelection.index');
 Route::get('evaluateTeacher/{sectionID}/{subjectID}/{facultyID}', 'Student\EvaluationController@evaluateTeacher');
 Route::post('studentEvaluationStore', 'Student\EvaluationController@studentEvaluationStore')->name('studentEvaluation.store');
 

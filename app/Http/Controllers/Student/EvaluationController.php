@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth, App\Model\Faculty, App\Model\Student;
 use App\Model\Schedule, App\User, App\Model\Subject;
 use App\Model\Question, App\Model\Choice, App\Model\ChoiceQuestion;
-use App\Model\StudentFacultyEvaluation;
+use App\Model\StudentFacultyEvaluation, App\Model\EvaluationSetting;
 
 class EvaluationController extends Controller
 {
@@ -44,7 +44,14 @@ class EvaluationController extends Controller
                 return $data;
             });
 
-        return view ('v1/views/student/evaluation/evaluateTeacherSelection', compact('teachers', 'studentInfo'));
+        $evaluationSettings = EvaluationSetting::first();
+
+        $dateToday = date('m/d/Y');
+        $startDate = date('m/d/Y', strtotime($evaluationSettings->start_date));
+        $endDate = date('m/d/Y', strtotime($evaluationSettings->end_date));
+
+        return view ('v1/views/student/evaluation/evaluateTeacherSelection',
+            compact('teachers', 'studentInfo', 'dateToday', 'startDate', 'endDate'));
     }
 
     public function evaluateTeacher($sectionID, $subjectID, $facultyID)
@@ -71,6 +78,7 @@ class EvaluationController extends Controller
         foreach ($request->question_id as $questionIndex => $questionID) {
             StudentFacultyEvaluation::create([
                 'sy_id' => $this->activeSYID(),
+                'sem_id' => $this->activeSemID(),
                 'subject_id' => $request->subject_id,
                 'faculty_id' => $request->faculty_id,
                 'question_id' => $questionID,

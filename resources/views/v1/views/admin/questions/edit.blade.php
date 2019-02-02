@@ -63,7 +63,7 @@
                                     @if($question->type == 'multiple_choice') checked @endif>
                                         Multiple Choice
                                 </label>
-                                <label class="radio-inline" style="margin-right:15px;font-weight:normal;">
+                                {{-- <label class="radio-inline" style="margin-right:15px;font-weight:normal;">
                                     <input type="radio" name="type" value="fill_in_the_blanks"
                                     @if($question->type == 'fill_in_the_blanks') checked @endif>
                                         Fill-in the blanks
@@ -72,7 +72,7 @@
                                     <input type="radio" name="type" value="true_or_false"
                                     @if($question->type == 'true_or_false') checked @endif>
                                         True or False
-                                </label>
+                                </label> --}}
                             </div>
 
                             <div class="form-group">

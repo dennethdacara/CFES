@@ -22,6 +22,7 @@
                                 <th>Gender</th>
                                 <th>Employee #</th>
                                 <th>Email</th>
+                                <th>Status</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
@@ -40,15 +41,20 @@
                                 <td>{{$faculty->gender}}</td>
                                 <td>{{$faculty->employee_no}}</td>
                                 <td>{{$faculty->email}}</td>
+                                <td>{{$faculty->is_active ? 'Active User' : 'Inactive User'}}</td>
                                 <td>{{$faculty->created_at}}</td>
                                 <td>
-                                    <form method="POST" action="{{route('faculties.destroy', ['id' => $faculty->id])}}">
-                                        <!-- <a href="{{route('faculties.edit', ['id' => $faculty->id])}}" class="btn btn-sm btn-primary">Edit</a> -->
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this faculty?');"
-                                            class="btn btn-sm btn-danger">Delete</button>
-                                    </form>
+                                    @if($faculty->is_active)
+                                        <a href="{{route('faculties.toggle_activation', ['userID' => $faculty->id])}}"
+                                            class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?');">
+                                            Deactivate User
+                                        </a>
+                                    @else
+                                        <a href="{{route('faculties.toggle_activation', ['userID' => $faculty->id])}}"
+                                            class="btn btn-sm btn-success" onclick="return confirm('Are you sure?');">
+                                            Activate User
+                                        </a>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

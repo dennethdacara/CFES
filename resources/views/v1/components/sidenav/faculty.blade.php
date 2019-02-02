@@ -23,16 +23,16 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item {{ Request::is('/') ? 'has-treeview menu-open' : '' }}">
+        {{-- <li class="nav-item {{ Request::is('/') ? 'has-treeview menu-open' : '' }}">
           <a href="{{route('checkAuth')}}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
             <i class="nav-icon fa fa-dashboard"></i>
             <p>Dashboard</p>
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{route('facultyEvaluationSummary.index')}}" class="nav-link {{ Request::is('facultyEvaluationSummary*') ? 'active' : '' }}">
             <i class="nav-icon fa fa-edit"></i>
-            <p>My Evaluations</p>
+            <p>Evaluation Summary</p>
           </a>
         </li>
         <li class="nav-item">

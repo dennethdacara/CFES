@@ -40,13 +40,13 @@
             Request::is('subjects*') || Request::is('sy*')
             || Request::is('questions*') || Request::is('faculties*')
             || Request::is('users*') || Request::is('schedules*')
-            || Request::is('students*') ? 'has-treeview menu-open' : '' }}">
+            || Request::is('students*') || Request::is('semesters*') ? 'has-treeview menu-open' : '' }}">
           <a href="#" class="nav-link
             {{ Request::is('gradelevels*') || Request::is('sections*') ||
             Request::is('subjects*') || Request::is('sy*')
             || Request::is('questions*') || Request::is('faculties*')
             || Request::is('users*') || Request::is('schedules*')
-            || Request::is('students*') ? 'active' : '' }}">
+            || Request::is('students*') || Request::is('semesters*') ? 'active' : '' }}">
             <i class="nav-icon fa fa-th"></i>
             <p>Core Modules<i class="right fa fa-angle-left"></i></p>
           </a>
@@ -99,7 +99,19 @@
                 <p>Schoolyear</p>
               </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('semesters.index')}}" class="nav-link {{ Request::is('semesters*') ? 'active' : '' }}">
+                    <i class="fas fa-university nav-icon"></i>
+                    <p>Semesters</p>
+                </a>
+            </li>
           </ul>
+        </li>
+        <li class="nav-item">
+            <a href="{{route('evaluationSettings.index')}}" class="nav-link {{ Request::is('evaluationSettings*') ? 'active' : '' }}">
+                <i class="nav-icon fa fa-gear"></i>
+                <p>Evaluation Settings</p>
+            </a>
         </li>
         <li class="nav-item">
           <a href="{{route('questions.index')}}" class="nav-link {{ Request::is('questions*') ? 'active' : '' }}">

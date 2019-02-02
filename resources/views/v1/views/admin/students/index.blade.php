@@ -48,7 +48,7 @@
                                 <td>{{$student->created_at}}</td>
                                 <td>
                                     <form method="POST" action="{{route('students.destroy', ['id' => $student->id])}}">
-                                        <a href="{{route('students.edit', ['id' => $student->id])}}" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="{{route('students.edit', ['id' => $student->id])}}" class="btn btn-sm btn-info">Edit</a>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <button type="submit" onclick="return confirm('Are you sure you want to delete this student?');"

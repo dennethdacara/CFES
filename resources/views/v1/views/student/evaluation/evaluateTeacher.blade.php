@@ -61,16 +61,16 @@
                 <input name="faculty_id" type="hidden" value="{{ $teacher->id }}">
                 <input name="student_id" type="hidden" value="{{ $studentInfo->student_id }}">
 
-                <p><div class="g-recaptcha" data-sitekey="6Lf-HYsUAAAAABCJA1ba0WRbvEHBIibpWtHufAWq" data-callback="enableSubmit"></div></p>
+                {{-- <p><div class="g-recaptcha" data-sitekey="6Lf-HYsUAAAAABCJA1ba0WRbvEHBIibpWtHufAWq" data-callback="enableSubmit"></div></p> --}}
 
                 <!-- fix for small devices only -->
                 <div class="clearfix hidden-md-up"></div>
             </div>
 
             <br>
-            <div class="box-footer row" style="margin-bottom:10px;">
-                <button class="btn btn-md btn-info" id="submitBtn" onclick="return confirm('Are you sure you want to submit your evaluation?');">Submit</button>
-            </div>
+            <div class="box-footer" style="margin-bottom:10px;">
+                <button class="btn btn-md btn-success" id="submitBtn" onclick="return confirm('Are you sure you want to submit your evaluation?');">Submit Evaluation</button>
+            </div><br><br>
 
         </form>
     </div>
@@ -79,13 +79,13 @@
 <!-- /.content -->
 
 <script>
-    $(function () {
-        document.getElementById("submitBtn").disabled = true;
-    });
+    // $(function () {
+    //     document.getElementById("submitBtn").disabled = true;
+    // });
 
-    function enableSubmit(){
-        document.getElementById("submitBtn").disabled = false;
-    }
+    // function enableSubmit(){
+    //     document.getElementById("submitBtn").disabled = false;
+    // }
 </script>
 
 @stop

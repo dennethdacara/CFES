@@ -25,7 +25,7 @@
                 <th>Sort Order</th>
                 <th>Is Active</th>
                 <th>Created At</th>
-                <th>Actions</th>
+                {{-- <th>Actions</th> --}}
               </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                 <td>{{$gradelevel->sort_order}}</td>
                 <td>{{$gradelevel->is_active ? 'Yes' : 'No'}}</td>
                 <td>{{$gradelevel->created_at}}</td>
-                <td>
+                {{-- <td>
                   <form method="POST" action="{{route('gradelevels.destroy', ['id' => $gradelevel->id])}}">
                     <a href="{{route('gradelevels.edit', ['id' => $gradelevel->id])}}" class="btn btn-sm btn-primary">Edit</a>
                     <input type="hidden" name="_method" value="DELETE">
@@ -43,7 +43,7 @@
                     <button type="submit" onclick="return confirm('Are you sure you want to delete this gradelevel?');"
                       class="btn btn-sm btn-danger">Delete</button>
                   </form>
-                </td>
+                </td> --}}
               </tr>
               @endforeach
             </tbody>
