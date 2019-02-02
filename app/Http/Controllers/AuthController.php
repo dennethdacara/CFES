@@ -17,7 +17,7 @@ class AuthController extends Controller
             return back()->with('error', 'User has been deactivated.');
         }
 
-        if (Auth::user()->role_id == Role::_ADMIN) : return view ('v1/views/admin/home'); endif;
+        if (Auth::user()->role_id == Role::_ADMIN) : return redirect('reports/selection'); endif;
 
         if (Auth::user()->role_id == Role::_STUDENT) : return redirect('evaluateTeacherSelection'); endif;
 

@@ -43,8 +43,8 @@ class UserController extends Controller
                 'middlename' => $request->middlename,
                 'lastname' => $request->lastname,
                 'gender' => $request->gender,
-                'email' => $request->email,
-                'username' => $request->email,
+                'email' => $request->username.'@gmail.com',
+                'username' => $request->username,
                 'password' => bcrypt('password'),
                 'slug' => str_slug($request->firstname.' '.$request->lastname)
             ]);
@@ -86,8 +86,8 @@ class UserController extends Controller
             'middlename' => $request->middlename,
             'lastname' => $request->lastname,
             'gender' => $request->gender,
-            'email' => $request->email,
-            'username' => $request->email,
+            'email' => $request->username.'@gmail.com',
+            'username' => $request->username,
             'slug' => str_slug($request->firstname.' '.$request->lastname)
         ]);
 

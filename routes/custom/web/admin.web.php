@@ -18,3 +18,6 @@ Route::resource('schedules', 'Admin\ScheduleController');
 Route::resource('students', 'Admin\StudentController');
 
 Route::resource('evaluationSettings', 'Admin\EvaluationDurationSettingsController', ['only' => ['index', 'update']]);
+
+Route::get('reports/selection', 'Admin\ReportsController@index')->name('reports.index');
+Route::get('reports/displayReports/{startDate?}/{endDate?}', 'Admin\ReportsController@displayReports')->name('reports.displayReports');

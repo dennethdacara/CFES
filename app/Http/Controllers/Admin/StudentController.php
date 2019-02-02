@@ -50,9 +50,9 @@ class StudentController extends Controller
                 'middlename' => $request->middlename,
                 'lastname' => $request->lastname,
                 'gender' => $request->gender,
-                'email' => $request->email,
+                'email' => $request->student_no.'@gmail.com',
                 'image' => 'student.png',
-                'username' => $request->email,
+                'username' => $request->student_no,
                 'password' => bcrypt('password'),
                 'slug' => str_slug($request->firstname.' '.$request->lastname)
             ]);
@@ -107,7 +107,7 @@ class StudentController extends Controller
                 'middlename' => $request->middlename,
                 'lastname' => $request->lastname,
                 'gender' => $request->gender,
-                'email' => $request->email,
+                //'email' => $request->email,
                 'slug' => $request->firstname.' '.$request->lastname
             ]);
 

@@ -29,22 +29,20 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item {{ Request::is('/') ? 'has-treeview menu-open' : '' }}">
+        {{-- <li class="nav-item {{ Request::is('/') ? 'has-treeview menu-open' : '' }}">
           <a href="{{route('checkAuth')}}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
             <i class="nav-icon fa fa-dashboard"></i>
             <p>Dashboard</p>
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item has-treeview
             {{ Request::is('gradelevels*') || Request::is('sections*') ||
-            Request::is('subjects*') || Request::is('sy*')
-            || Request::is('questions*') || Request::is('faculties*')
+            Request::is('subjects*') || Request::is('sy*') || Request::is('faculties*')
             || Request::is('users*') || Request::is('schedules*')
             || Request::is('students*') || Request::is('semesters*') ? 'has-treeview menu-open' : '' }}">
           <a href="#" class="nav-link
             {{ Request::is('gradelevels*') || Request::is('sections*') ||
-            Request::is('subjects*') || Request::is('sy*')
-            || Request::is('questions*') || Request::is('faculties*')
+            Request::is('subjects*') || Request::is('sy*') || Request::is('faculties*')
             || Request::is('users*') || Request::is('schedules*')
             || Request::is('students*') || Request::is('semesters*') ? 'active' : '' }}">
             <i class="nav-icon fa fa-th"></i>
@@ -120,9 +118,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+            <a href="{{route('reports.index')}}" class="nav-link {{ Request::is('reports*') ? 'active' : '' }}">
             <i class="fas fa-file-contract nav-icon"></i>
-            <p>Reports *</p>
+            <p>Reports</p>
           </a>
         </li>
       </ul>

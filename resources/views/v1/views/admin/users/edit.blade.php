@@ -79,11 +79,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Email*</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email"
-                                    value="{{$user->email}}">
-                                @if ($errors->has('email'))
-                                <span class="help-block align-left" style="color:red;">{{ $errors->first('email') }}</span>
+                                <label>Username*</label>
+                                <input type="username" class="form-control" name="username" id="username" placeholder="Enter username"
+                                    value="{{$user->username}}">
+                                @if ($errors->has('username'))
+                                <span class="help-block align-left" style="color:red;">{{ $errors->first('username') }}</span>
                                 @endif
                             </div>
 

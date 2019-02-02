@@ -11,8 +11,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ !file_exists( public_path() . '/images/user_icons/' . Auth::user()->image) ? 
-          asset('images/user_icons/default.png') : asset('images/user_icons').'/'.Auth::user()->image }}"
+        <img src="{{ asset('images/user_icons/faculty.png') }}"
           class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">

@@ -25,7 +25,7 @@
                                 <th>Name</th>
                                 <th>Role</th>
                                 <th>Gender</th>
-                                <th>Email</th>
+                                <th>Username</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
@@ -41,7 +41,7 @@
                                 <td>{{$user->fullname}}</td>
                                 <td>{{$user->role}}</td>
                                 <td>{{$user->gender}}</td>
-                                <td>{{$user->email}}</td>
+                                <td>{{$user->username}}</td>
                                 <td>{{$user->created_at}}</td>
                                 <td>
                                     @if(Auth::user()->id == $user->id)

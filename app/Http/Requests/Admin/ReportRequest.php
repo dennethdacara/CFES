@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Auth;
 
-class UserRequest extends FormRequest
+class ReportRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,8 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-
-        $user_id = $this->isMethod('patch') ? ',' . $this->request->get('user_id') : '';
-
         return [
-            'role_id' => 'required|numeric',
-            'firstname' => 'required|max:255',
-            'middlename' => 'nullable|max:255',
-            'lastname' => 'required|max:255',
-            'gender' => 'required',
-            'username' => 'required|max:255|unique:users,username' . $user_id
+            'report_type' => 'required'
         ];
     }
 }

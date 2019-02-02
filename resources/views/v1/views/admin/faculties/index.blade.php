@@ -32,9 +32,7 @@
                             <tr>
                                 <td>
                                     <center>
-                                        <img src="{{ !file_exists( public_path() . '/images/user_icons/' . $faculty->image) ?
-                                        asset('images/user_icons/default.png') : asset('images/user_icons').'/'.$faculty->image }}"
-                                        class="img-circle elevation-2" style="height:50px;width:50px;" alt="User Image">
+                                        <img src="{{ $faculty->image == null ? asset('images/user_icons/faculty.png') : asset('images/user_icons').'/'.$faculty->image }}" style="height:50px;width:50px;">
                                     </center>
                                 </td>
                                 <td>{{$faculty->fullname}}</td>

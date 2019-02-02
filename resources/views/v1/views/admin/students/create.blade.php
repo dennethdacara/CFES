@@ -72,13 +72,13 @@
                                 </label>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Email*</label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Ex. student@gmail.com" value="{{old('email')}}" required>
                                 @if ($errors->has('email'))
                                 <span class="help-block align-left" style="color:red;">{{ $errors->first('email') }}</span>
                                 @endif
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label>Gradelevel*</label>
