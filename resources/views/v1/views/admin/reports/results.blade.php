@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">{{ $title }}</h3>
-                    @if($reportType == 'listOfStudentsEvaluated')
+                    @if($reportType == 'listOfEvaluators')
                         <form method="GET" action="{{ route('reports.displayReports') }}">
                             <input type="hidden" name="report_type" value="{{$reportType}}">
                             <div class="card-body">

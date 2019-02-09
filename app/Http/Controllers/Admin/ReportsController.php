@@ -72,6 +72,33 @@ class ReportsController extends Controller
 
         }
 
+        if ($request->report_type == 'listOfEvaluatedTeachers') {
+
+            $title = 'Report Type: List of evaluated teachers';
+            $reportType = 'listOfEvaluatedTeachers';
+            $tableHeaders = ['#', 'Fullname', 'Status'];
+
+            $teacherIDs = StudentFacultyEvaluation::whereSyIdAndSemId($syID, $semID)->pluck('faculty_id');
+            $teachers = User::whereRoleId(Role::_FACULTY)
+                ->whereIn('id', $teacherIDs)
+                ->get()
+                ->map(function ($data) {
+                    $data->fullname = $data->firstname.' '.$data->middlename.' '.$data->lastname;
+                    $data->is_active ? $status = 'Active' : $status = 'Inactive';
+                    $data->status = $status;
+                    return $data;
+                });
+
+            $data = [];
+            foreach ($teachers as $teacher) {
+                $data[] = [
+                    'id' => $teacher->id,
+                    'fullname' => $teacher->fullname,
+                    'status' => $teacher->status
+                ];
+            }
+        }
+
         if ($request->report_type == 'listOfActiveInactiveTeachers') {
             $title = 'Report Type: List of Active/Inactive Teachers';
             $reportType = 'listOfActiveInactiveTeachers';
@@ -99,6 +126,7 @@ class ReportsController extends Controller
             }
 
         }
+
 
         return view ('v1/views/admin/reports/results', compact('title', 'reportType', 'tableHeaders', 'data', 'oldStartDate', 'oldEndDate'));
     }

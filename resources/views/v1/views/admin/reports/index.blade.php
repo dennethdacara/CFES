@@ -21,6 +21,7 @@
                             <select name="report_type" id="report_type" class="form-control">
                                 <option value="" disabled selected>Select One</option>
                                 <option value="listOfEvaluators">List of evaluators</option>
+                                <option value="listOfEvaluatedTeachers">List of evaluated teachers</option>
                                 <option value="listOfActiveInactiveTeachers">List of active/inactive teachers</option>
                             </select>
                             @if ($errors->has('report_type'))
