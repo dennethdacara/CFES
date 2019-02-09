@@ -29,7 +29,7 @@
             {{csrf_field()}}
 
             <div class="row">
-                @foreach($questions as $key => $question)
+                @forelse($questions as $key => $question)
                     <table class="table table-bordered">
                         <thead>
                             <th class="text-left quiz-table" width="20%"><strong>Question #{{$key+1}}</strong></th>
@@ -54,7 +54,24 @@
                         </tbody>
                         <input name="question_id[]" type="hidden" value="{{$question->id}}">
                     </table>
-                @endforeach
+                @empty
+
+                    <div class="col-md-10">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            </button>
+                            <strong>
+                                No questions available for <i>Section: {{$section->name}} | Subject: {{$subject->name}}</i><br>
+                            </strong>
+                        </div>
+
+                        <a href="{{ url('evaluateTeacherSelection') }}" class="btn btn-sm btn-info">
+                            <i class="fas fa-arrow-alt-circle-left"></i>
+                            Back to selection
+                        </a>
+                    </div>
+
+                @endforelse
 
                 <input name="section_id" type="hidden" value="{{ $sectionID }}">
                 <input name="subject_id" type="hidden" value="{{ $subject->id }}">
@@ -68,9 +85,11 @@
             </div>
 
             <br>
-            <div class="box-footer" style="margin-bottom:10px;">
-                <button class="btn btn-md btn-success" id="submitBtn" onclick="return confirm('Are you sure you want to submit your evaluation?');">Submit Evaluation</button>
-            </div><br><br>
+            @if(count($questions))
+                <div class="box-footer" style="margin-bottom:10px;">
+                    <button class="btn btn-md btn-success" id="submitBtn" onclick="return confirm('Are you sure you want to submit your evaluation?');">Submit Evaluation</button>
+                </div><br><br>
+            @endif
 
         </form>
     </div>

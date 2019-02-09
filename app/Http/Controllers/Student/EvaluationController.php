@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth, App\Model\Faculty, App\Model\Student;
-use App\Model\Schedule, App\User, App\Model\Subject;
+use App\Model\Schedule, App\User, App\Model\Subject, App\Model\Section;
 use App\Model\Question, App\Model\Choice, App\Model\ChoiceQuestion;
 use App\Model\StudentFacultyEvaluation, App\Model\EvaluationSetting;
 
@@ -62,13 +62,14 @@ class EvaluationController extends Controller
 
         $teacher = User::find($facultyID);
         $teacherFullName = $teacher->firstname.' '.$teacher->lastname;
+        $section = Section::find($sectionID);
         $subject = Subject::find($subjectID);
         $choices = Choice::leftjoin('choice_question','choice_question.choice_id','choices.id')->get(['choices.*', 'choice_question.question_id']);
         $availableQuestionIDs = ChoiceQuestion::distinct()->pluck('question_id');
         $questions = Question::whereSectionIdAndSubjectId($sectionID, $subjectID)->whereIn('id',$availableQuestionIDs)->get();
 
         return view ('v1/views/student/evaluation/evaluateTeacher',
-            compact('teacherFullName', 'subject', 'questions', 'choices', 'studentInfo', 'teacher', 'sectionID'));
+            compact('teacherFullName', 'section', 'subject', 'questions', 'choices', 'studentInfo', 'teacher', 'sectionID'));
     }
 
     public function studentEvaluationStore(Request $request)

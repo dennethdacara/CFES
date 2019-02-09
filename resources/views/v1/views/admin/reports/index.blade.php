@@ -20,8 +20,8 @@
                             <label>Report Type*</label>
                             <select name="report_type" id="report_type" class="form-control">
                                 <option value="" disabled selected>Select One</option>
-                                <option value="listOfStudentsEvaluated">List of students evaluated</option>
-                                <option value="listOfActiveInactiveFaculty">List of active/inactive faculty</option>
+                                <option value="listOfEvaluators">List of evaluators</option>
+                                <option value="listOfActiveInactiveTeachers">List of active/inactive teachers</option>
                             </select>
                             @if ($errors->has('report_type'))
                             <span class="help-block align-left" style="color:red;">{{

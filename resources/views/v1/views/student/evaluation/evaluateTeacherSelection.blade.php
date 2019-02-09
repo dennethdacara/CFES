@@ -44,8 +44,8 @@
                             <div class="info-box-content">
                                 <a href="#" style="color:inherit;">
                                     <span class="info-box-text">
-                                        {{ $teacher->fullname }} <br>
-                                        <small>Subject: <b>{{$teacher->subject}}</b></small><br>
+                                        Subject: {{$teacher->subject}} <br>
+                                        <small>Teacher: <b>{{ $teacher->fullname }}</b></small><br>
                                         <small>Evaluation Status: <i>{{ $teacher->status == 'disabled' ? 'Already Submitted' : 'Pending' }}</i></small>
                                     </span>
                                     <span class="info-box-number" style="margin-top:5px;">
@@ -69,7 +69,7 @@
                                 <input type="hidden" name="subject_id" value="{{ $teacher->subject_id }}">
                                 <input type="hidden" name="faculty_id" value="{{ $teacher->faculty_id }}">
                                 <input type="hidden" name="student_id" value="{{ $studentInfo->student_id }}">
-                                <input type="text" name="comment" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                                <input type="text" name="comment" class="form-control form-control-sm" placeholder="Press enter to post a comment.">
                                 @if ($errors->has('comment'))
                                 <span class="help-block align-left" style="color:red;">{{
                                     $errors->first('comment') }}</span>

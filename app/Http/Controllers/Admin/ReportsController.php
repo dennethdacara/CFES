@@ -21,7 +21,7 @@ class ReportsController extends Controller
         $syID = $this->activeSyID();
         $semID = $this->activeSemID();
 
-        if ($request->report_type == 'listOfStudentsEvaluated') {
+        if ($request->report_type == 'listOfEvaluators') {
 
             $studentIDs1 = Student::distinct()->pluck('id');
             $totalStudents = Student::count();
@@ -33,9 +33,9 @@ class ReportsController extends Controller
                 ->toArray();
 
             $totalStudentsEvaluated = count($studentsEvaluated);
-            $title = 'Report Type: List of students evaluated | Total Students Evaluated: '.$totalStudentsEvaluated.'/'.$totalStudents;
-            $reportType = 'listOfStudentsEvaluated';
-            $tableHeaders = ['#', 'Student Name', 'Gradelevel', 'Section'];
+            $title = 'Report Type: List of evaluators | Total Evaluators: '.$totalStudentsEvaluated.'/'.$totalStudents;
+            $reportType = 'listOfEvaluators';
+            $tableHeaders = ['#', 'Evaluator Name', 'Gradelevel', 'Section'];
 
             if($request->start_date && $request->end_date) {
                 $studentIDs = StudentFacultyEvaluation::whereSyId($syID)
@@ -72,10 +72,10 @@ class ReportsController extends Controller
 
         }
 
-        if ($request->report_type == 'listOfActiveInactiveFaculty') {
-            $title = 'Report Type: List of Active/Inactive Faculty';
-            $reportType = 'listOfActiveInactiveFaculty';
-            $tableHeaders = ['#', 'Faculty Name', 'Status'];
+        if ($request->report_type == 'listOfActiveInactiveTeachers') {
+            $title = 'Report Type: List of Active/Inactive Teachers';
+            $reportType = 'listOfActiveInactiveTeachers';
+            $tableHeaders = ['#', 'Teacher Name', 'Status'];
 
             $faculties = User::whereRoleId(Role::_FACULTY)
                 ->get()

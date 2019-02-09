@@ -48,11 +48,11 @@
                                         No action/s available
                                     @else
                                     <form method="POST" action="{{route('users.destroy', ['id' => $user->id])}}">
-                                        <a href="{{route('users.edit', ['id' => $user->id])}}" class="btn btn-sm btn-primary">Edit</a>
-                                        <input type="hidden" name="_method" value="DELETE">
+                                        <a href="{{route('users.edit', ['id' => $user->id])}}" class="btn btn-sm btn-primary">Edit Details</a>
+                                        {{-- <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <button type="submit" onclick="return confirm('Are you sure you want to delete this user?');"
-                                            class="btn btn-sm btn-danger">Delete</button>
+                                            class="btn btn-sm btn-danger">Delete</button> --}}
                                     </form>
                                     @endif
                                 </td>
