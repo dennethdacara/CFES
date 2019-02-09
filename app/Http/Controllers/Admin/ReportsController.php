@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\ReportRequest;
 use App\Http\Controllers\Controller;
 use App\Model\Student, App\Model\StudentFacultyEvaluation;
-use App\User, App\Model\Faculty, App\Model\Role;
+use App\User, App\Model\Faculty, App\Model\Role, App\Model\Section;
 
 class ReportsController extends Controller
 {
@@ -76,16 +76,25 @@ class ReportsController extends Controller
 
             $title = 'Report Type: List of evaluated teachers';
             $reportType = 'listOfEvaluatedTeachers';
-            $tableHeaders = ['#', 'Fullname', 'Status'];
+            $tableHeaders = ['#', 'Fullname', 'Advisory Section/s', 'Status'];
 
             $teacherIDs = StudentFacultyEvaluation::whereSyIdAndSemId($syID, $semID)->pluck('faculty_id');
             $teachers = User::whereRoleId(Role::_FACULTY)
                 ->whereIn('id', $teacherIDs)
-                ->get()
+                ->get(['users.*'])
                 ->map(function ($data) {
+
+                    $sections = Section::whereAdviserId($data->id)->get();
+                    $sectionArray = [];
+
+                    foreach($sections as $section) {
+                        $sectionArray[] = $section->name;
+                    }
+
                     $data->fullname = $data->firstname.' '.$data->middlename.' '.$data->lastname;
                     $data->is_active ? $status = 'Active' : $status = 'Inactive';
                     $data->status = $status;
+                    $data->section = implode(', ', $sectionArray);
                     return $data;
                 });
 
@@ -94,7 +103,8 @@ class ReportsController extends Controller
                 $data[] = [
                     'id' => $teacher->id,
                     'fullname' => $teacher->fullname,
-                    'status' => $teacher->status
+                    'advisorySection' => $teacher->section,
+                    'status' => $teacher->status,
                 ];
             }
         }
